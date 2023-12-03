@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { filter } from 'redux/configureStore';
+import { filter } from 'redux/filterSlice';
 
 export const Filter = () => {
   const dispatch = useDispatch();
-  const contactFilter = useSelector(state => state.filter);
+  const contactFilter = useSelector(state => state.filter.filter);
 
   return (
     <input
