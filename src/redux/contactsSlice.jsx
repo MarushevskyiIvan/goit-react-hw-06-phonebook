@@ -32,15 +32,17 @@ const contactsSlice = createSlice({
 export const contactsReducer = contactsSlice.reducer;
 export const { addContact, deleteContact } = contactsSlice.actions;
 
+const rootReducer = combineReducers({
+  contacts: contactsReducer,
+  filter: filterReducer,
+});
+
 const persistConfig = {
   key: 'contacts',
   storage,
   whitelist: ['contacts'],
 };
 
-const rootReducer = combineReducers({
-  contacts: contactsReducer,
-  filter: filterReducer,
-});
-
 export const persistedRootReducer = persistReducer(persistConfig, rootReducer);
+
+export const contactsSelector = state => state.contacts.contacts;
