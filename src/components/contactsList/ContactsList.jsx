@@ -3,6 +3,7 @@ import { ListBtn, ListItem, ListNumber, ListText } from './ContactsList.styled';
 
 import { contactsSelector, deleteContact } from 'redux/contactsSlice';
 import { filterSelector } from 'redux/filterSlice';
+import { ItemWrapper } from 'components/App.styled';
 
 export const ContactsList = () => {
   const dispatch = useDispatch();
@@ -16,16 +17,18 @@ export const ContactsList = () => {
     );
   };
 
-  return contacts().map(({ value: { name, number }, id }) => {
-    return (
-      contacts().length > 0 && (
-        <ListItem key={id}>
-          <ListText>{name}</ListText> :<ListNumber>{number}</ListNumber>
-          <ListBtn onClick={() => dispatch(deleteContact(id))} type="button">
-            delete
-          </ListBtn>
-        </ListItem>
-      )
-    );
-  });
+  return (
+    <ItemWrapper>
+      {contacts().map(({ value: { name, number }, id }) => {
+        return (
+          <ListItem key={id}>
+            <ListText>{name}</ListText> :<ListNumber>{number}</ListNumber>
+            <ListBtn onClick={() => dispatch(deleteContact(id))} type="button">
+              delete
+            </ListBtn>
+          </ListItem>
+        );
+      })}
+    </ItemWrapper>
+  );
 };

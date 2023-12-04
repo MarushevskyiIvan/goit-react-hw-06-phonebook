@@ -12,11 +12,7 @@ export const App = () => {
 
       <h2>Contacts</h2>
       <Filter />
-      {
-        <ItemWrapper>
-          <ContactsList />
-        </ItemWrapper>
-      }
+      <ContactsList />
       <GlobalStyle />
     </Wrapper>
   );
