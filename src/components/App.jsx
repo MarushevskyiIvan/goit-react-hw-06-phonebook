@@ -1,7 +1,7 @@
 import { Filter } from './filter/FormFilter';
 import { ContactForm } from './contactForm/ContactForm';
 import { ContactsList } from './contactsList/ContactsList';
-import { ItemWrapper, Wrapper } from './App.styled';
+import { Wrapper } from './App.styled';
 import { GlobalStyle } from 'GlobalStale';
 
 export const App = () => {
